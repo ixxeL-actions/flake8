@@ -53,9 +53,9 @@ runs:
         if [[ ${EXIT_CODE} -ne 0 ]]
         then
           echo -e "${RED}[ FAIL ] > Flake8 scan failed.${BLANK}"
+          exit ${EXIT_CODE}
         else
           echo -e "${GREEN}[ SUCCESS ] > Flake8 scan succeeded.${BLANK}"
-          exit ${EXIT_CODE}
         fi
       shell: bash
       env:
