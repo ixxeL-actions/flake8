@@ -23,4 +23,5 @@ jobs:
         format: json
         exit-zero: 'true'
         output-file: ''
+        ignore: 'E501'
         working-dir: '.'

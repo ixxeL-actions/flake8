@@ -10,6 +10,10 @@ inputs:
     description: 'Exit with status code "0" even if there are errors'
     required: false
     default: 'true'
+  ignore-error:
+    description: 'Comma-separated list of errors and warnings to ignore'
+    required: false
+    default: 'E501'    
   output-file:
     description: 'Redirect report to a file'
     required: false
