@@ -55,6 +55,7 @@ runs:
           echo -e "${RED}[ FAIL ] > Flake8 scan failed.${BLANK}"
         else
           echo -e "${GREEN}[ SUCCESS ] > Flake8 scan succeeded.${BLANK}"
+          exit ${EXIT_CODE}
         fi
       shell: bash
       env:
