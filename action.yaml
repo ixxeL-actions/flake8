@@ -43,16 +43,16 @@ runs:
 
         if [[ ${{ inputs.format }} != "json" ]]
         then
-          flake8 ${{ inputs.working-dir }} --format=${{ inputs.format }} --count --output-file=${{ inputs.output-file }} ${NO_ERROR}
+          flake8 ${{ inputs.working-dir }} --format=${{ inputs.format }} --count --output-file=${{ inputs.output-file }} --ignore=${{ inputs.ignore-error }} ${NO_ERROR}
         else
-          flake8 ${{ inputs.working-dir }} --format=${{ inputs.format }} --count --output-file=${{ inputs.output-file }} ${NO_ERROR} | jq -C
+          flake8 ${{ inputs.working-dir }} --format=${{ inputs.format }} --count --output-file=${{ inputs.output-file }} --ignore=${{ inputs.ignore-error }} ${NO_ERROR} | jq -C
         fi
         EXIT_CODE="${PIPESTATUS[0]}"
 
         echo -e "${CYAN}[ INFO ] > Flake8 linting summary.${BLANK}"
-        flake8 ${{ inputs.working-dir }} --statistics -q --exit-zero
+        flake8 ${{ inputs.working-dir }} --statistics -q --ignore=${{ inputs.ignore-error }} --exit-zero
         echo -e "${CYAN}[ INFO ] > Flake8 performances summary.${BLANK}"
-        flake8 ${{ inputs.working-dir }} --benchmark -q --exit-zero
+        flake8 ${{ inputs.working-dir }} --benchmark -q --ignore=${{ inputs.ignore-error }} --exit-zero
 
         if [[ ${EXIT_CODE} -ne 0 ]]
         then
