@@ -21,6 +21,6 @@ jobs:
       uses: ixxeL-actions/flake8@main
       with:
         format: json
-        exit-zero: 'true'
+        exit-zero: 'false'
         output-file: ''
         working-dir: '.'
