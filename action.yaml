@@ -45,9 +45,9 @@ runs:
         EXIT_CODE="${PIPESTATUS[0]}"
 
         echo -e "${CYAN}[ INFO ] > Flake8 linting summary.${BLANK}"
-        flake8 ${{ inputs.working-dir }} --statistics -q
+        flake8 ${{ inputs.working-dir }} --statistics -q ${NO_ERROR}
         echo -e "${CYAN}[ INFO ] > Flake8 performances summary.${BLANK}"
-        flake8 ${{ inputs.working-dir }} --benchmark -q
+        flake8 ${{ inputs.working-dir }} --benchmark -q ${NO_ERROR}
 
         if [[ ${EXIT_CODE} -ne 0 ]]
         then
