@@ -1,0 +1,26 @@
+name: flake8-CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    container: 
+      image: ixxel/unit-tests-alpine:latest
+    steps:
+    - name: Git clone repo
+      uses: actions/checkout@v2
+    - name: Flake8 linting python
+      uses: ixxeL-actions/flake8@main
+      with:
+        format: json
+        exit-zero: 'true'
+        output-file: ''
+        working-dir: '.'
