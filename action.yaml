@@ -24,6 +24,7 @@ runs:
   steps:
     - id: flake8
       run: |
+        set +e
         echo -e "${BLUE}[ STEP - LINTING CODE ] > Linting Python code with Flake8.${BLANK}"
         echo -e "${CYAN}[ INFO ] > Flake8 version.${BLANK}"
         flake8 --version
